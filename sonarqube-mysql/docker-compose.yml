@@ -7,10 +7,10 @@ services:
       - ./sonardb_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: P1b7JBvP8II4
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASS}
       MYSQL_DATABASE: sonarqube
       MYSQL_USER: sonarqube
-      MYSQL_PASSWORD: P1b7JBvP8II4
+      MYSQL_PASSWORD: ${MYSQL_PASS}
 
   sonarqube:
     depends_on:
@@ -22,5 +22,5 @@ services:
       - "9092:9092"
     environment:
       SONARQUBE_JDBC_USERNAME: sonarqube
-      SONARQUBE_JDBC_PASSWORD: P1b7JBvP8II4
+      SONARQUBE_JDBC_PASSWORD: ${MYSQL_PASS}
       SONARQUBE_JDBC_URL: jdbc:mysql://db:3306/sonarqube?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
