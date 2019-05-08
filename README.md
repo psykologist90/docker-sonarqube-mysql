@@ -1,10 +1,10 @@
-# Docker Compose file for Sonarqube with MySQL
+# Docker Compose file for Sonarqube with PostGres (Mysql has been deprecated)
 
 ## Installation
 
 1. Install docker and docker-compose
 1. Clone the repository
-1. Open terminal and cd into ./sonarqube-mysql
+1. Open terminal and cd into ./sonarqube-postgres
 1. Run `docker-compose up -d`
 1. Open browser and browse to <http://youripaddress:9000/>
 
@@ -26,21 +26,10 @@ sudo sh get-docker.sh
 ```bash
 // Clone repository
 sudo apt-get install git
-git clone https://github.com/marvinpuethe/docker-sonarqube-mysql.git
+git clone https://github.com/psykologist90/docker-sonarqube-db.git
 
 // Start docker-compose
-cd docker-sonarqube-mysql/sonarqube-mysql
+cd docker-sonarqube-db/sonarqube-postgres
+echo 'PG_PASS=thepassyouwant' > .env
 docker-compose up -d
 ```
-
-## Environment Parameters
-
-| Name                      | Description                                                                           |
-| ------------------------- | ------------------------------------------------------------------------------------- |
-| MYSQL_ROOT_PASSWORD       | Password for root dbuser in mysql                                                     |
-| MYSQL_DATABASE            | Database name in mysql used for storing sonarqube information                         |
-| MYSQL_USER                | Dbuser used for connecting the sonarqube application                                  |
-| MYSQL_PASSWORD            | Password for dbuser                                                                   |
-| SONARQUBE_JDBC_USERNAME   | Username for connecting to the mysql db (make sure this is the same as MYSQL_USER)    |
-| SONARQUBE_JDBC_PASSWORD   | Password for connecting to the mysql db (make sure this is the same as MYSQL_PASSWORD)|
-| SONARQUBE_JDBC_URL        | JDBC Url for connecting to the mysql db                                               |
