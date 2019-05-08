@@ -1,3 +1,3 @@
 .idea
-sonarqube-mysql/sonardb_data
-sonarqube-mysql/.env
+./sonarqube-mysql/sonardb_data
+./sonarqube-mysql/.env
